@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/tz33mkqwyckln4m1vykv9f2bd547rhepcquwzx61nbcb5u64/tinymce/8/tinymce.min.js"
+        referrerpolicy="origin" crossorigin="anonymous">
+        </script>
+
+</head>
+
+
+<body>
+
+    <div>
+
+        <div>
+            <a href="/logout">Logout</a>
+        </div>
+
+
+        <div class="parent-profile-pic">
+
+            <div class="profilepic">
+                <img src="/images/uploads/<%= user.profilepic %>" alt="Profile Picture">
+            </div>
+
+            <h3>
+                Hello, <%= user.name %>
+            </h3>
+
+        </div>
+
+
+        <h5>You can create a new post</h5>
+
+
+        <form action="/post" method="post">
+
+            <textarea name="content" id="content" placeholder="What are you thinking??"></textarea>
+
+            <input type="submit" value="Create Post">
+
+        </form>
+
+
+        <div>
+
+            <h3>Your Posts</h3>
+
+            <div class="post-container">
+
+                <% user.posts.reverse().forEach(function(post){ %>
+
+                    <div class="post">
+
+                        <h4>
+                            <%= user.username %>
+                        </h4>
+
+                        <div class="post-content">
+                            <%- post.content %>
+                        </div>
+
+                        <small>
+                            <%= post.likes.length %> likes
+                        </small>
+
+                        <div class="btns">
+                            <a href="/like/<%= post._id %>">
+                                <%= post.likes.indexOf(user._id)===-1 ? "Like" : "Unlike" %>
+                            </a>
+
+                            <a href="/edit/<%= post._id %>">Edit</a>
+
+                            <a href="/delete/<%= post._id %>">Delete</a>
+                        </div>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        tinymce.init({
+
+            selector: '#content',
+
+            height: 300,
+
+            menubar: false,
+
+            plugins: 'lists link image table code',
+
+            toolbar:
+                'undo redo | blocks | bold italic underline | ' +
+                'bullist numlist | link image table | code',
+
+            placeholder: 'What are you thinking??'
+
+        });
+
+    </script>
+
+</body>
+
+</html>

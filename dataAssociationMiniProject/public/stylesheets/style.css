@@ -1,0 +1,186 @@
+/* ---------- Reset & base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #18181b;
+  color: #f4f4f5;
+  padding: 40px 20px;
+}
+
+body > div {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1, h3, h4, h5 {
+  margin-bottom: 14px;
+}
+
+h5 {
+  color: #a1a1aa;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Forms & inputs ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.input,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  color: #f4f4f5;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input::placeholder,
+textarea::placeholder {
+  color: #71717a;
+}
+
+.input:focus,
+textarea:focus {
+  border-color: #60a5fa;
+}
+
+textarea {
+  height: 130px;
+  resize: none;
+}
+
+input[type="submit"],
+.input[type="submit"] {
+  padding: 11px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="submit"]:hover,
+.input[type="submit"]:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- Register & Login pages (wrapper that holds an h1) ---------- */
+body:has(> div > h1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body > div:has(> h1) {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: #1f1f23;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+}
+
+body > div:has(> h1) h1 {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+body > div:has(> h1) form {
+  margin-bottom: 0;
+}
+
+/* ---------- Logout bar (profile + edit pages) ---------- */
+body > div > div:first-child {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+body > div > div:first-child a {
+  padding: 7px 16px;
+  background: #ef4444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+}
+
+body > div > div:first-child a:hover {
+  background: #dc2626;
+  text-decoration: none;
+}
+
+/* ---------- Profile page ---------- */
+body > div > h3 {
+  font-size: 24px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.post {
+  padding: 18px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 10px;
+}
+
+.post h4 {
+  color: #60a5fa;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.post p {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e4e4e7;
+}
+
+.post small {
+  color: #a1a1aa;
+  font-size: 12px;
+}
+
+.btns {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #3f3f46;
+  font-size: 13px;
+}
+
+.btns a:last-child {
+  color: #f87171;
+}
